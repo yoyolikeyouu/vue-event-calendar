@@ -147,10 +147,10 @@ export default {
 @white: #ffffff;
 @gray: #e0e0e0;
 @gray-dark: #b1b1b1;
-@large-padding: 15px;
-@small-padding: 10px;
+@large-padding:.1rem;
+@small-padding: .1rem;
 
-@icon-border-size: 1px;
+@icon-border-size: 1px;/*
 @media screen and (min-width: 768px) {
   .__vev_calendar-wrapper{
     max-width: 1200px;
@@ -189,7 +189,7 @@ export default {
       padding: 10px;
     }
   }
-}
+}*/
 .__vev_calendar-wrapper{
   position: relative;
   overflow: hidden;
@@ -214,18 +214,16 @@ export default {
       position: relative;
       width: 100%;
       background-color: @white;
-      // box-shadow: 0 6px 5px rgba(0,0,0,.1);
       font-weight: 500;
       overflow: hidden;
-      padding-bottom: 10px;
       &>div{
         float: left;
-        line-height: 20px;
         padding: @large-padding;
       }
       .title{
         width: 60%;
         text-align: center;
+          font-size:.34rem;
       }
       .l{
         text-align: left;
@@ -245,24 +243,25 @@ export default {
     .cal-body{
       width: 100%;
       .weeks{
-        width: 100%;
-        overflow: hidden;
-        text-align: center;
-        font-size: 1rem;
-        .item{
-          line-height: 50px;
-          float: left;
-          width: 14.285%;
-            padding-bottom: .1rem;
-        }
+          width: 100%;
+          overflow: hidden;
+          text-align: center;
+          font-size: .36rem;
+          font-weight:500;
+          margin-top: .24rem;
+          margin-bottom: .5rem;
+            .item {
+                float: left;
+                width: 14.285%;
+            }
       }
       .dates{
         width: 100%;
         overflow: hidden;
         text-align: center;
-        font-size: 1rem;
+        font-size: .4rem;
         .item{
-            padding-bottom: .1rem;
+            padding-bottom: .5rem;
           position: relative;
           float: left;
           display: block;
@@ -270,97 +269,11 @@ export default {
           cursor: default;
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           .date-num{
-            font-size: 1rem;
+            font-size: .3rem;
             position: relative;
             z-index: 3;
           }
-          &.event{
-            cursor: pointer;
-          }
-          &.selected-day{
-            .is-event{
-              background-color: @base-orange;
-            }
-          }
-          .is-event{
-            content: '';
-            border: 1px solid @base-orange;
-            background-color: #fff;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            z-index: 1;
-            margin-left: -18px;
-            margin-top: -19px;
-          }
-          .is-today{
-            content: '';
-            background-color: @base-orange;
-            border-radius: 50%;
-            opacity: .8;
-            width: 12px;
-            height: 4px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            z-index: 2;
-            margin-left: -6px;
-            margin-top: 8px;
-          }
         }
-      }
-    }
-  }
-  .events-wrapper{
-    border-radius: 10px;
-    .cal-events{
-      height: 95%;
-      overflow-y: auto;
-      padding: 0 5px;
-      margin: 15px 0;
-    }
-    .date{
-      max-width: 60%;
-      min-width: 200px;
-      text-align: center;
-      color: @white;
-      background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 20px;
-      margin: 0 auto;
-      font-size: 22px;
-    }
-    .event-item{
-      padding: 5px 20px;
-      margin-top: 15px;
-      box-shadow: 0 3px 11px 2px rgba(0,0,0,.1);
-      background-color: #fff;
-      border-radius: 5px;
-      color: #323232;
-      position: relative;
-      &:first-child{
-        margin-top: 0;
-      }
-      .title{
-        height: 40px;
-        line-height: 40px;
-        color: #323232;
-        font-size: 16px;
-        border-bottom: 1px solid #f2f2f2;
-      }
-      .time{
-        position: absolute;
-        right: 30px;
-        top: 17px;
-        color: #9b9b9b;
-        font-size: 14px;
-      }
-      .desc{
-        color: #9b9b9b;
-        font-size: 14px;
-        padding: 7px 0;
       }
     }
   }
@@ -370,18 +283,19 @@ export default {
     left: 6%;
     margin-top: 10px;
   }
-  .arrow-left.icon:before {
+
+.arrow-left.icon:before {
     content: '';
     position: absolute;
-    left: 1px;
-    top: -5px;
-    width: 10px;
-    height: 10px;
+    left: .01rem;
+    top: -.1rem;
+    width: .2rem;
+    height: .2rem;
     border-top: solid @icon-border-size currentColor;
     border-right: solid @icon-border-size currentColor;
     -webkit-transform: rotate(-135deg);
-            transform: rotate(-135deg);
-  }
+    transform: rotate(-135deg);
+}
   .arrow-right.icon {
     color: #000;
     position: absolute;
@@ -391,10 +305,10 @@ export default {
   .arrow-right.icon:before {
     content: '';
     position: absolute;
-    right: 1px;
-    top: -5px;
-    width: 10px;
-    height: 10px;
+    right: .01rem;
+    top: -.1rem;
+    width: .2rem;
+    height: .2rem;
     border-top: solid @icon-border-size currentColor;
     border-right: solid @icon-border-size currentColor;
     -webkit-transform: rotate(45deg);

@@ -26,7 +26,7 @@
         data () {
             return {
                 demoEvents: [{
-                    date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
+                    date: `${today.getFullYear()}/${today.getMonth() + 1}/01`,
                     title: 'Title-1',
                     desc: 'longlonglong description',
                     isDaka: true,

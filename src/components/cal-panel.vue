@@ -1,49 +1,53 @@
 <template>
-  <div class="cal-wrapper">
-    <div class="cal-header">
-      <div class="l" @click="preMonth"><div class="arrow-left icon">&nbsp;</div></div>
-      <div class="title">{{curYearMonth}}</div>
-      <div class="r" @click="nextMonth"><div class="arrow-right icon">&nbsp;</div></div>
-    </div>
-    <div class="cal-body">
-      <div class="weeks">
+    <div class="cal-wrapper">
+        <div class="cal-header">
+            <div class="l" @click="preMonth">
+                <div class="arrow-left icon">&nbsp;</div>
+            </div>
+            <div class="title">{{curYearMonth}}</div>
+            <div class="r" @click="nextMonth">
+                <div class="arrow-right icon">&nbsp;</div>
+            </div>
+        </div>
+        <div class="cal-body">
+            <div class="weeks">
         <span
-          v-for="(dayName, dayIndex) in i18n[calendar.options.locale].dayNames"
-          class="item"
-          :key="dayIndex"
-          >
+                v-for="(dayName, dayIndex) in i18n[calendar.options.locale].dayNames"
+                class="item"
+                :key="dayIndex"
+        >
           {{i18n[calendar.options.locale].dayNames[(dayIndex + calendar.options.weekStartOn) % 7]}}
         </span>
-      </div>
-      <div class="dates" >
-        <div v-for="(date,index) in dayList" class="item"
-          :class="[{
+            </div>
+            <div class="dates">
+                <div v-for="(date,index) in dayList" class="item"
+                     :class="[{
             today: date.status ? (today == date.date) : false,
             event: date.status ? (date.title != undefined) : false,
             [calendar.options.className] : (date.date == selectedDay)
           }, ...date.customClass]"
-          :key="date.date"
-          >
-          <p v-if="!date.isDaka && !date.isRead "  class="date-num"
-            @click="handleChangeCurday(date)"
-            :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
-            {{date.status ? date.date.split('/')[2] : '&nbsp;'}}</p>
-            <!--判断是否是今天的样式-->
-            <!--<span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>-->
-            <!--事件日期加圆圈,-->
-          <!--<span v-if="date.status ? (date.title != undefined) : false" class="is-event"
-            :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>-->
-            <div v-if="date.isRead" style="" @click="handleChangeCurday(date)" >
-                <img src="static/imgs/read.png" style="width:2rem;height: 1.9rem"/>
+                     :key="date.date"
+                >
+                    <p v-if="!date.isDaka && !date.isRead " class="date-num"
+                       @click="handleChangeCurday(date)"
+                       :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
+                        {{date.status ? date.date.split('/')[2] : '&nbsp;'}}</p>
+                    <!--判断是否是今天的样式-->
+                    <!--<span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>-->
+                    <!--事件日期加圆圈,-->
+                    <!--<span v-if="date.status ? (date.title != undefined) : false" class="is-event"
+                      :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>-->
+                    <div v-if="date.isRead" style="" @click="handleChangeCurday(date)">
+                        <img src="static/imgs/read.png" style="width:.5rem;height:  .5rem"/>
+                    </div>
+                    <div v-if="date.isDaka" @click="handleChangeCurday(date)">
+                        <img src="static/imgs/daka.png" style="width:.5rem;height: .6rem"/>
+                    </div>
+                    <br v-if="(index+1)%7==0"/>
+                </div>
             </div>
-            <div v-if="date.isDaka" @click="handleChangeCurday(date)">
-                <img src="static/imgs/daka.png" style="width:2rem;height: 2.2rem"/>
-            </div>
-            <br v-if="(index+1)%7==0"/>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>

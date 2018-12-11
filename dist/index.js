@@ -303,6 +303,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -895,7 +899,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('span', {
       key: dayIndex,
       staticClass: "item"
-    }, [_vm._v("\n        " + _vm._s(_vm.i18n[_vm.calendar.options.locale].dayNames[(dayIndex + _vm.calendar.options.weekStartOn) % 7]) + "\n      ")])
+    }, [_vm._v("\n      " + _vm._s(_vm.i18n[_vm.calendar.options.locale].dayNames[(dayIndex + _vm.calendar.options.weekStartOn) % 7]) + "\n    ")])
   })), _vm._v(" "), _c('div', {
     staticClass: "dates"
   }, _vm._l((_vm.dayList), function(date, index) {
@@ -916,7 +920,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.handleChangeCurday(date)
         }
       }
-    }, [_vm._v("\n          " + _vm._s(date.status ? date.date.split('/')[2] : ' '))]) : _vm._e(), _vm._v(" "), (date.isRead) ? _c('div', {
+    }, [_vm._v("\n                    " + _vm._s(date.status ? date.date.split('/')[2] : ' '))]) : _vm._e(), _vm._v(" "), (date.isRead) ? _c('div', {
       on: {
         "click": function($event) {
           _vm.handleChangeCurday(date)
@@ -924,8 +928,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('img', {
       staticStyle: {
-        "width": "2rem",
-        "height": "1.9rem"
+        "width": ".5rem",
+        "height": ".5rem"
       },
       attrs: {
         "src": "static/imgs/read.png"
@@ -938,8 +942,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('img', {
       staticStyle: {
-        "width": "2rem",
-        "height": "2.2rem"
+        "width": ".5rem",
+        "height": ".6rem"
       },
       attrs: {
         "src": "static/imgs/daka.png"
