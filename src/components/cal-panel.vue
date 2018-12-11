@@ -16,7 +16,7 @@
         </span>
       </div>
       <div class="dates" >
-        <div v-for="date in dayList" class="item"
+        <div v-for="(date,index) in dayList" class="item"
           :class="[{
             today: date.status ? (today == date.date) : false,
             event: date.status ? (date.title != undefined) : false,
@@ -34,10 +34,10 @@
           <!--<span v-if="date.status ? (date.title != undefined) : false" class="is-event"
             :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>-->
             <div v-if="date.isRead" style="" @click="handleChangeCurday(date)" >
-                <img src="./read.png" style="width:2rem;height: 1.9rem"/>
+                <img src="static/imgs/read.png" style="width:2rem;height: 1.9rem"/>
             </div>
             <div v-if="date.isDaka" @click="handleChangeCurday(date)">
-                <img src="./daka.png" style="width:2rem;height: 2.2rem"/>
+                <img src="static/imgs/daka.png" style="width:2rem;height: 2.2rem"/>
             </div>
             <br v-if="(index+1)%7==0"/>
         </div>

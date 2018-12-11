@@ -66,7 +66,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: #2c3e50;
-        margin-top: 30px;
     }
 
     h1, h2, h3 {
@@ -89,8 +88,4 @@
         color: #42b983;
     }
 
-    .t-center {
-        text-align: center;
-        margin: 20px;
-    }
 </style>

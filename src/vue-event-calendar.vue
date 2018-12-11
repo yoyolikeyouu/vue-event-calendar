@@ -1,32 +1,34 @@
 <template>
   <div class="__vev_calendar-wrapper">
-    <cal-panel
-      :events="events"
-      :calendar="calendarOptions"
-      :selectedDay='selectedDayEvents.date'
-      @cur-day-changed="handleChangeCurDay"
-      @month-changed="handleMonthChanged">
-    </cal-panel>
-   <!-- <cal-events
-      :title="title"
-      :dayEvents="selectedDayEvents"
-      :locale="calendarOptions.options.locale"
-      :color="calendarOptions.options.color">
-      <slot :showEvents="selectedDayEvents.events"></slot>
-    </cal-events>-->
+      <div class="__vev_calendar-wrapper">
+          <cal-panel
+                  :events="events"
+                  :calendar="calendarOptions"
+                  :selectedDay='selectedDayEvents.date'
+                  @cur-day-changed="handleChangeCurDay"
+                  @month-changed="handleMonthChanged">
+          </cal-panel>
+          <!-- <cal-events
+             :title="title"
+             :dayEvents="selectedDayEvents"
+             :locale="calendarOptions.options.locale"
+             :color="calendarOptions.options.color">
+             <slot :showEvents="selectedDayEvents.events"></slot>
+           </cal-events>-->
+      </div>
   </div>
 </template>
 <script>
 import { isEqualDateStr} from './tools.js'
 
-import calEvents from './components/cal-events.vue'
+//import calEvents from './components/cal-events.vue'
 import calPanel from './components/cal-panel.vue'
 
 const inBrowser = typeof window !== 'undefined'
 export default {
-  name: 'vue-event-calendar',
+  name: 'vue-event-calendar-ysh',
   components: {
-    'cal-events': calEvents,
+//    'cal-events': calEvents,
     'cal-panel': calPanel
   },
   data () {
@@ -251,7 +253,7 @@ export default {
           line-height: 50px;
           float: left;
           width: 14.285%;
-            padding-bottom: 1rem;
+            padding-bottom: .1rem;
         }
       }
       .dates{
@@ -260,7 +262,7 @@ export default {
         text-align: center;
         font-size: 1rem;
         .item{
-            padding-bottom: 1rem;
+            padding-bottom: .1rem;
           position: relative;
           float: left;
           display: block;

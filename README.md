@@ -16,16 +16,16 @@
 #### install
 
 ``` sh
- npm install vue-event-calendar --save
+ npm install vue-event-calendar-ysh --save
 ```
 
 #### main.js
 
 ```javascript
-import 'vue-event-calendar/dist/style.css' //^1.1.10, CSS has been extracted as one file, so you can easily update it.
-import vueEventCalendar from 'vue-event-calendar'
+import 'vue-event-calendar-ysh/dist/style.css' //^1.1.10, CSS has been extracted as one file, so you can easily update it.
+import vueEventCalendar from 'vue-event-calendar-ysh'
 // locale can be 'zh' , 'en' , 'es', 'pt-br', 'ja', 'ko', 'fr', 'it', 'ru', 'de', 'vi', 'ua', 'no, 'no-nn'
-Vue.use(vueEventCalendar, {locale: 'en'}) 
+Vue.use(vueEventCalendar, {locale: 'zh', weekStartOn: 1});
 ```
 
 #### file.vue
@@ -86,11 +86,13 @@ export default {
     return {
       demoEvents: [{
         date: '2016/12/15',
-        title: 'eat',
-        desc: 'longlonglong description'
+        isDaka:true,
+        isRead:true,
       },{
         date: '2016/11/12',
-        title: 'this is a title'
+        title: 'this is a title',
+        isDaka:false,
+        isRead:true,
       }]
     }
   }

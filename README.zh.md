@@ -1,6 +1,6 @@
-# vue-event-calendar
+# vue-event-calendar-ysh
 
-> vue-event-calendar是一款简单小巧的事件日历组件，针对Vue2开发。样式美观，且响应式。
+> vue-event-calendar-ysh是一款简单小巧的事件日历组件，针对Vue2开发。样式美观，且响应式。
 > [在线例子](http://geoffzhu.cn/vue-event-calendar/)
 
 ![](http://o80ronwlu.bkt.clouddn.com/vue-event-calendar.gif)
@@ -14,15 +14,15 @@
 #### 安装
 
 ``` sh
- npm install vue-event-calendar --save
+ npm install vue-event-calendar-ysh --save
 ```
 
 #### 入口 Main.js
 
 ```javascript
-import 'vue-event-calendar/dist/style.css' //1.1.10之后的版本，css被放在了单独的文件中，方便替换
-import vueEventCalendar from 'vue-event-calendar'
-Vue.use(vueEventCalendar, {locale: 'en'}) //可以设置语言，支持中文和英文
+import 'vue-event-calendar-ysh/dist/style.css' //1.1.10之后的版本，css被放在了单独的文件中，方便替换
+import vueEventCalendar from 'vue-event-calendar-ysh'
+Vue.use(vueEventCalendar, {locale: 'zh', weekStartOn: 1}); //可以设置语言，支持中文和英文
 ```
 
 #### 用法示例
@@ -38,12 +38,16 @@ export default {
     return {
       demoEvents: [{
         date: '2016/11/12', // 必填
-        title: 'Foo' // 必填
+        title: 'Foo', // 必填
+        isDaka:false,
+        isRead:true
       }, {
         date: '2016/12/15',
         title: 'Bar',
         desc: 'description',
-        customClass: 'disabled highlight' // 自定义日历单元格的Class，会加到对应的日历单元格上
+        customClass: 'disabled highlight', // 自定义日历单元格的Class，会加到对应的日历单元格上
+        isDaka:true,
+        isRead:true
       }]
     }
   },
@@ -70,7 +74,7 @@ export default {
 当你使用自定义日历标题的时候，需要注意，标题将被替换成静态的你传入的String，你需要手动监听dayChanged事件去改变title。
 
 ## 自定义事件模版（可以允许你展示更多信息）
-vue-event-calendar允许自定义事件模版，但是这个功能需要Vue 2.1.0版本以上才可以使用。原因是我试用了2.1.0以上才有的新功能作用域插槽(Scoped Slots)。
+vue-event-calendar-ysh允许自定义事件模版，但是这个功能需要Vue 2.1.0版本以上才可以使用。原因是我试用了2.1.0以上才有的新功能作用域插槽(Scoped Slots)。
 
 ```vue
 <template>

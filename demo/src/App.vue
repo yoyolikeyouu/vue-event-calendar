@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>vue-event-calendar</h1>
-    <h2 class="t-center">Default template</h2>
+    <h2 class="t-center">Default template</h2>事实上事实上所所所
     <vue-event-calendar
       :events="demoEvents"
       @day-changed="handleDayChanged"
