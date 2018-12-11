@@ -24,13 +24,22 @@
           }, ...date.customClass]"
           :key="date.date"
           >
-          <p class="date-num"
+          <p v-if="!date.isDaka && !date.isRead "  class="date-num"
             @click="handleChangeCurday(date)"
             :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
             {{date.status ? date.date.split('/')[2] : '&nbsp;'}}</p>
-          <span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>
-          <span v-if="date.status ? (date.title != undefined) : false" class="is-event"
-            :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>
+            <!--判断是否是今天的样式-->
+            <!--<span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>-->
+            <!--事件日期加圆圈,-->
+          <!--<span v-if="date.status ? (date.title != undefined) : false" class="is-event"
+            :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>-->
+            <div v-if="date.isRead" style="" @click="handleChangeCurday(date)" >
+                <img src="./read.png" style="width:2rem;height: 1.9rem"/>
+            </div>
+            <div v-if="date.isDaka" @click="handleChangeCurday(date)">
+                <img src="./daka.png" style="width:2rem;height: 2.2rem"/>
+            </div>
+            <br v-if="(index+1)%7==0"/>
         </div>
       </div>
     </div>
@@ -94,8 +103,10 @@ export default {
           }
           this.events.forEach((event) => {
             if (isEqualDateStr(event.date, tempItem.date)) {
-              tempItem.title = event.title
-              tempItem.desc = event.desc || ''
+              tempItem.title = event.title;
+              tempItem.desc = event.desc || '';
+              tempItem.isRead = event.isRead && !event.isDaka || false;
+              tempItem.isDaka =  event.isDaka || false;
               if (event.customClass) tempItem.customClass.push(event.customClass)
             }
           })

@@ -7,13 +7,13 @@
       @cur-day-changed="handleChangeCurDay"
       @month-changed="handleMonthChanged">
     </cal-panel>
-    <cal-events
+   <!-- <cal-events
       :title="title"
       :dayEvents="selectedDayEvents"
       :locale="calendarOptions.options.locale"
       :color="calendarOptions.options.color">
       <slot :showEvents="selectedDayEvents.events"></slot>
-    </cal-events>
+    </cal-events>-->
   </div>
 </template>
 <script>
@@ -251,6 +251,7 @@ export default {
           line-height: 50px;
           float: left;
           width: 14.285%;
+            padding-bottom: 1rem;
         }
       }
       .dates{
@@ -259,6 +260,7 @@ export default {
         text-align: center;
         font-size: 1rem;
         .item{
+            padding-bottom: 1rem;
           position: relative;
           float: left;
           display: block;
