@@ -31,16 +31,16 @@
                     <p v-if="!date.isDaka && !date.isRead " class="date-num"
                        @click="handleChangeCurday(date)"
                        :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
-                        {{date.status ? date.date.split('-')[2] : '&nbsp;'}}</p>
+                        {{date.status ? date.day : '&nbsp;'}}</p>
                     <!--判断是否是今天的样式-->
                     <!--<span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>-->
                     <!--事件日期加圆圈,-->
                     <!--<span v-if="date.status ? (date.title != undefined) : false" class="is-event"
                       :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>-->
-                    <div v-if="date.isRead" style="" @click="handleChangeCurday(date)">
+                    <div v-if="date.status && date.isRead" style="" @click="handleChangeCurday(date)">
                         <img src="static/imgs/read.png" style="width:.5rem;height:  .5rem"/>
                     </div>
-                    <div v-if="date.isDaka" @click="handleChangeCurday(date)">
+                    <div v-if="date.status && date.isDaka" @click="handleChangeCurday(date)">
                         <img src="static/imgs/daka.png" style="width:.5rem;height: .6rem"/>
                     </div>
                     <br v-if="(index+1)%7==0"/>
@@ -102,9 +102,10 @@ export default {
           }
           tempItem = {
             date: dateTimeFormatter(Date.parse(item), this.i18n[this.calendar.options.locale].fullFormat) ,
+            day:item.getDate() ,
             status: status,
             customClass: []
-          }
+          };
           this.events.forEach((event) => {
             if (isEqualDateStr(event.date, tempItem.date)) {
               tempItem.title = event.title;
