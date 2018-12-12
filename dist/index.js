@@ -128,8 +128,8 @@ function dateTimeFormatter(date, format) {
   return format;
 }
 function isEqualDateStr(dateStr1, dateStr2) {
-  var dateArr1 = dateStr1.split('/');
-  var dateArr2 = dateStr2.split('/');
+  var dateArr1 = dateStr1.split('-');
+  var dateArr2 = dateStr2.split('-');
   if (parseInt(dateArr1[0], 10) !== parseInt(dateArr2[0], 10)) {
     return false;
   }
@@ -362,7 +362,7 @@ var inBrowser = typeof window !== 'undefined';
           status = 0;
         }
         tempItem = {
-          date: item.getFullYear() + '/' + (item.getMonth() + 1) + '/' + item.getDate(),
+          date: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */])(Date.parse(item), this.i18n[this.calendar.options.locale].fullFormat),
           status: status,
           customClass: []
         };
@@ -380,11 +380,10 @@ var inBrowser = typeof window !== 'undefined';
       return tempArr;
     },
     today: function today() {
-      var dateObj = new Date();
-      return dateObj.getFullYear() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getDate();
+      return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */])(new Date(), this.i18n[this.calendar.options.locale].fullFormat);
     },
     curYearMonth: function curYearMonth() {
-      var tempDate = Date.parse(new Date(this.calendar.params.curYear + '/' + (this.calendar.params.curMonth + 1) + '/01'));
+      var tempDate = Date.parse(new Date(this.calendar.params.curYear + '-' + (this.calendar.params.curMonth + 1) + '-01'));
       return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */])(tempDate, this.i18n[this.calendar.options.locale].format);
     },
     customColor: function customColor() {
@@ -522,6 +521,7 @@ var inBrowser = typeof window !== 'undefined';
       var events = this.events.filter(function (event) {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__tools_js__["a" /* isEqualDateStr */])(event.date, date);
       });
+
       if (events.length > 0) {
         this.selectedDayEvents = {
           date: date,
@@ -582,8 +582,8 @@ var inBrowser = typeof window !== 'undefined';
   zh: {
     dayNames: ["日", "一", "二", "三", "四", "五", "六"],
     monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
-    format: 'yyyy年MM月',
-    fullFormat: 'yyyy年MM月dd日',
+    format: 'yyyy-MM',
+    fullFormat: 'yyyy-MM-dd',
     dayEventsTitle: '全部事件',
     notHaveEvents: '没有事件'
   },
@@ -920,7 +920,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.handleChangeCurday(date)
         }
       }
-    }, [_vm._v("\n                    " + _vm._s(date.status ? date.date.split('/')[2] : ' '))]) : _vm._e(), _vm._v(" "), (date.isRead) ? _c('div', {
+    }, [_vm._v("\n                    " + _vm._s(date.status ? date.date.split('-')[2] : ' '))]) : _vm._e(), _vm._v(" "), (date.isRead) ? _c('div', {
       on: {
         "click": function($event) {
           _vm.handleChangeCurday(date)

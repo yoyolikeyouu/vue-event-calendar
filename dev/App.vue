@@ -26,35 +26,25 @@
         data () {
             return {
                 demoEvents: [{
-                    date: `${today.getFullYear()}/${today.getMonth() + 1}/01`,
+                    date: `2018-12-01`,
                     title: 'Title-1',
                     desc: 'longlonglong description',
                     isDaka: true,
                     isRead: true,
-                }, {
-                    date: `${today.getFullYear()}/${today.getMonth() + 1}/15`,
-                    title: 'Title-1',
-                    desc: 'longlonglong description',
-                    isDaka: false,
-                    isRead: true
-                }, {
-                    date: `${today.getFullYear()}/${today.getMonth() + 1}/24`,
+                } ,{
+                    date: `2018-12-14`,
                     title: 'Title-2',
                     isDaka: false,
                     isRead: true
-                }, {
-                    date: `${today.getFullYear()}/${today.getMonth() === 11 ? 1 : today.getMonth() + 2}/06`,
-                    title: 'Title-3',
-                    desc: 'description',
-                    isDaka: true,
-                    isRead: true
-                }]
+                } ]
             }
         },
         methods: {
             handleDayChanged (data) {
+                console.log(data)
             },
             handleMonthChanged (data) {
+                console.log(data)
             }
         }
     }

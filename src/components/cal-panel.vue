@@ -31,7 +31,7 @@
                     <p v-if="!date.isDaka && !date.isRead " class="date-num"
                        @click="handleChangeCurday(date)"
                        :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
-                        {{date.status ? date.date.split('/')[2] : '&nbsp;'}}</p>
+                        {{date.status ? date.date.split('-')[2] : '&nbsp;'}}</p>
                     <!--判断是否是今天的样式-->
                     <!--<span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>-->
                     <!--事件日期加圆圈,-->
@@ -101,7 +101,7 @@ export default {
             status = 0
           }
           tempItem = {
-            date: `${item.getFullYear()}/${item.getMonth()+1}/${item.getDate()}`,
+            date: dateTimeFormatter(Date.parse(item), this.i18n[this.calendar.options.locale].fullFormat) ,
             status: status,
             customClass: []
           }
@@ -119,11 +119,10 @@ export default {
       return tempArr
     },
     today () {
-      let dateObj = new Date()
-      return `${dateObj.getFullYear()}/${dateObj.getMonth()+1}/${dateObj.getDate()}`
+        return dateTimeFormatter(new Date(), this.i18n[this.calendar.options.locale].fullFormat);
     },
     curYearMonth () {
-      let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}/${this.calendar.params.curMonth+1}/01`))
+      let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}-${this.calendar.params.curMonth+1}-01`))
       return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
     },
     customColor () {
