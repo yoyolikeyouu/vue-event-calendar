@@ -363,6 +363,7 @@ var inBrowser = typeof window !== 'undefined';
         }
         tempItem = {
           date: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */])(Date.parse(item), this.i18n[this.calendar.options.locale].fullFormat),
+          day: item.getDate(),
           status: status,
           customClass: []
         };
@@ -920,7 +921,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.handleChangeCurday(date)
         }
       }
-    }, [_vm._v("\n                    " + _vm._s(date.status ? date.date.split('-')[2] : ' '))]) : _vm._e(), _vm._v(" "), (date.isRead) ? _c('div', {
+    }, [_vm._v("\n                    " + _vm._s(date.status ? date.day : ' '))]) : _vm._e(), _vm._v(" "), (date.status && date.isRead) ? _c('div', {
       on: {
         "click": function($event) {
           _vm.handleChangeCurday(date)
@@ -934,7 +935,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "src": "static/imgs/read.png"
       }
-    })]) : _vm._e(), _vm._v(" "), (date.isDaka) ? _c('div', {
+    })]) : _vm._e(), _vm._v(" "), (date.status && date.isDaka) ? _c('div', {
       on: {
         "click": function($event) {
           _vm.handleChangeCurday(date)
