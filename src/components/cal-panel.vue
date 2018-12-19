@@ -123,8 +123,12 @@ export default {
         return dateTimeFormatter(new Date(), this.i18n[this.calendar.options.locale].fullFormat);
     },
     curYearMonth () {
-      let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}-${this.calendar.params.curMonth+1}-01`))
-      return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
+      var month=`${this.calendar.params.curMonth+1}`;
+      if(month<10){
+          month="0"+month;
+      }
+      let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}-`+month+`-01`))
+        return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
     },
     customColor () {
       return this.calendar.options.color

@@ -384,7 +384,11 @@ var inBrowser = typeof window !== 'undefined';
       return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */])(new Date(), this.i18n[this.calendar.options.locale].fullFormat);
     },
     curYearMonth: function curYearMonth() {
-      var tempDate = Date.parse(new Date(this.calendar.params.curYear + '-' + (this.calendar.params.curMonth + 1) + '-01'));
+      var month = '' + (this.calendar.params.curMonth + 1);
+      if (month < 10) {
+        month = "0" + month;
+      }
+      var tempDate = Date.parse(new Date(this.calendar.params.curYear + '-' + month + '-01'));
       return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */])(tempDate, this.i18n[this.calendar.options.locale].format);
     },
     customColor: function customColor() {
