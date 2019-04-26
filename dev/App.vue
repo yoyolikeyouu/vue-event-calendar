@@ -7,15 +7,16 @@
                 @day-changed="handleDayChanged"
                 @month-changed="handleMonthChanged"
         ></vue-event-calendar>
-       <!-- <h2 class="t-center">Custom template</h2>
-        <vue-event-calendar :events="demoEvents">
+        <h2 class="t-center">Custom template</h2>
+        <vue-event-calendar :events="demoEvents"
+                            @day-changed="handleDayChanged"
+                            @month-changed="handleMonthChanged">
             <template scope="props">
                 <div v-for="(event, index) in props.showEvents" class="event-item">
-                    &lt;!&ndash; In here do whatever you want, make you owner event template &ndash;&gt;
                     {{event}}
                 </div>
             </template>
-        </vue-event-calendar>-->
+        </vue-event-calendar>
     </div>
 </template>
 
@@ -26,16 +27,12 @@
         data () {
             return {
                 demoEvents: [{
-                    date: `2018-12-01`,
+                    date: `2019-04-01`,
                     title: 'Title-1',
                     desc: 'longlonglong description',
-                    isDaka: true,
-                    isRead: true,
                 } ,{
-                    date: `2018-12-14`,
+                    date:`2019-04-05`,
                     title: 'Title-2',
-                    isDaka: false,
-                    isRead: true
                 } ]
             }
         },

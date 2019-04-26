@@ -28,7 +28,7 @@
           }, ...date.customClass]"
                      :key="date.date"
                 >
-                    <p v-if="!date.isDaka && !date.isRead " class="date-num"
+                    <p v-if="!date.eventDay " class="date-num"
                        @click="handleChangeCurday(date)"
                        :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
                         {{date.status ? date.day : '&nbsp;'}}</p>
@@ -37,11 +37,8 @@
                     <!--事件日期加圆圈,-->
                     <!--<span v-if="date.status ? (date.title != undefined) : false" class="is-event"
                       :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>-->
-                    <div v-if="date.status && date.isRead" style="" @click="handleChangeCurday(date)">
-                        <img src="static/imgs/read.png" style="width:.5rem;height:  .5rem"/>
-                    </div>
-                    <div v-if="date.status && date.isDaka" @click="handleChangeCurday(date)">
-                        <img src="static/imgs/daka.png" style="width:.5rem;height: .6rem"/>
+                    <div v-if="date.status && date.eventDay" @click="handleChangeCurday(date)">
+                        <img src="static/imgs/icon.png" style="width:.5rem;height: .5rem"/>
                     </div>
                     <br v-if="(index+1)%7==0"/>
                 </div>
@@ -110,8 +107,7 @@ export default {
             if (isEqualDateStr(event.date, tempItem.date)) {
               tempItem.title = event.title;
               tempItem.desc = event.desc || '';
-              tempItem.isRead = event.isRead && !event.isDaka || false;
-              tempItem.isDaka =  event.isDaka || false;
+              tempItem.eventDay = true;
               if (event.customClass) tempItem.customClass.push(event.customClass)
             }
           })
