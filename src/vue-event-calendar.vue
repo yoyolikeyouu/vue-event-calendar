@@ -262,7 +262,6 @@ export default {
         text-align: center;
         font-size: .4rem;
         .item{
-          padding-bottom: .24rem;
           position: relative;
           float: left;
           display: block;

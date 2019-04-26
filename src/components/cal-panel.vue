@@ -29,7 +29,6 @@
                      :key="date.date"
                 >
                     <p v-if="!date.eventDay " class="date-num"
-                       @click="handleChangeCurday(date)"
                        :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
                         {{date.status ? date.day : '&nbsp;'}}</p>
                     <!--判断是否是今天的样式-->
@@ -38,7 +37,7 @@
                     <!--<span v-if="date.status ? (date.title != undefined) : false" class="is-event"
                       :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>-->
                     <div v-if="date.status && date.eventDay" @click="handleChangeCurday(date)">
-                        <img src="static/imgs/icon.png" style="width:.5rem;height: .5rem"/>
+                        <img src="static/imgs/icon.png" style="width:.5rem;height: .44rem"/>
                     </div>
                     <br v-if="(index+1)%7==0"/>
                 </div>
