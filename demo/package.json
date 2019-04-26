@@ -1,7 +1,7 @@
 {
   "name": "vue-event-calendar-demo",
   "description": "A simple calendar to mark events for Vue2 ",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Geoff <geoffzhu1992@gmail.com>",
   "private": true,
   "scripts": {
