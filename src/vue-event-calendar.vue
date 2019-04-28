@@ -98,6 +98,7 @@ export default {
   },
   methods: {
     handleChangeCurDay (date) {
+        debugger;
       let events = this.events.filter(function(event) {
         return isEqualDateStr(event.date, date)
       })
@@ -108,10 +109,7 @@ export default {
           events: events
         }
       }
-      this.$emit('day-changed', {
-        date: date,
-        events: events
-      })
+      this.$emit('day-changed', this.selectedDayEvents)
     },
     handleMonthChanged (yearMonth) {
       this.$emit('month-changed', yearMonth)

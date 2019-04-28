@@ -1,7 +1,7 @@
 {
   "name": "vue-event-calendar-ysh",
   "description": "基于vue-event-calendar 修改,用于ysh",
-  "version": "1.0.18",
+  "version": "1.0.20",
   "author": "geoffzhu <geoffzhu1992@gmail.com>,yoyolikeyou",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",

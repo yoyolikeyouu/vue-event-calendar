@@ -28,8 +28,6 @@
             return {
                 demoEvents: [{
                     date: `2019-04-01`,
-                    title: 'Title-1',
-                    desc: 'longlonglong description',
                 } ,{
                     date:`2019-04-08`,
                     title: 'Title-2',
