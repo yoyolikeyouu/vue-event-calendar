@@ -23,8 +23,7 @@
                 <div v-for="(date,index) in dayList" class="item"
                      :class="[{
             today: date.status ? (today == date.date) : false,
-            event: date.status ? (date.title != undefined) : false,
-            [calendar.options.className] : (date.date == selectedDay)
+            event: date.status ? (date.title != undefined) : false
           }, ...date.customClass]"
                      :key="date.date"
                 >
@@ -36,8 +35,8 @@
                     <!--事件日期加圆圈,-->
                     <!--<span v-if="date.status ? (date.title != undefined) : false" class="is-event"
                       :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>-->
-                    <div v-if="date.status && date.eventDay" @click="handleChangeCurday(date)">
-                        <img src="static/imgs/icon.png" style="width:.5rem;height: .44rem"/>
+                    <div :class="date.date == selectedDay?'eventday selected-day ':'eventday'" v-if="date.status && date.eventDay" @click="handleChangeCurday(date)">
+                        <img src="static/imgs/icon.png" style="width:.5rem;height: .43rem; "/>
                     </div>
                     <br v-if="(index+1)%7==0"/>
                 </div>

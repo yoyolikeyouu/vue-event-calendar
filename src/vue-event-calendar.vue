@@ -98,10 +98,9 @@ export default {
   },
   methods: {
     handleChangeCurDay (date) {
-        debugger;
       let events = this.events.filter(function(event) {
         return isEqualDateStr(event.date, date)
-      })
+      });
 
       if (events.length > 0) {
         this.selectedDayEvents = {
@@ -109,7 +108,7 @@ export default {
           events: events
         }
       }
-      this.$emit('day-changed', this.selectedDayEvents)
+      this.$emit('day-changed', this.selectedDayEvents);
     },
     handleMonthChanged (yearMonth) {
       this.$emit('month-changed', yearMonth)
@@ -149,46 +148,7 @@ export default {
 @large-padding:.1rem;
 @small-padding: .1rem;
 
-@icon-border-size: 1px;/*
-@media screen and (min-width: 768px) {
-  .__vev_calendar-wrapper{
-    max-width: 1200px;
-    margin: 0 auto;
-    .cal-wrapper{
-      width: 50%;
-      padding: 100px 50px;
-      .date-num{
-        line-height: 50px;
-      }
-    }
-    .events-wrapper{
-      width: 50%;
-      background-color: @base-orange;
-      color: @white;
-      padding: 40px 45px;
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-    }
-  }
-}
-@media screen and (max-width: 767px) {
-  .__vev_calendar-wrapper{
-    .cal-wrapper{
-      width: 100%;
-      padding: 10px 5px;
-      .date-num{
-        line-height: 42px;
-      }
-    }
-    .events-wrapper{
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-    }
-  }
-}*/
+@icon-border-size: 1px;
 .__vev_calendar-wrapper{
   position: relative;
   overflow: hidden;
@@ -281,7 +241,19 @@ export default {
     left: 6%;
     margin-top: 10px;
   }
+  .eventday{
+      position: relative;
+      top:-.02rem;
+      margin-left: .3rem;
+      margin-bottom: .03rem;
+      width: .5rem;
+      height: .5rem;
+  }
+.selected-day{
+    background-color: #00cfba;
 
+    border-radius: 50%;
+}
 .arrow-left.icon:before {
     content: '';
     position: absolute;
