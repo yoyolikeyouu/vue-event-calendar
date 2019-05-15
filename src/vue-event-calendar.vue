@@ -220,6 +220,7 @@ export default {
         text-align: center;
         font-size: .4rem;
         .item{
+          padding-bottom: .1rem;
           position: relative;
           float: left;
           display: block;
@@ -243,11 +244,7 @@ export default {
   }
   .eventday{
       position: relative;
-      top:-.02rem;
-      margin-left: .3rem;
       margin-bottom: .03rem;
-      width: .5rem;
-      height: .5rem;
   }
 .selected-day{
     background-color: #00cfba;
